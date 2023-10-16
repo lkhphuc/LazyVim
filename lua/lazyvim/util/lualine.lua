@@ -131,10 +131,8 @@ function M.root_dir(opts)
 
   return {
     function()
-      return (opts.icon and opts.icon .. " ") .. get()
-    end,
-    cond = function()
-      return type(get()) == "string"
+      local root = get()
+      return root and (opts.icon and opts.icon .. " ") .. root or ""
     end,
     color = opts.color,
   }
